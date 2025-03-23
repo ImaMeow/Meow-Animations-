@@ -12,7 +12,7 @@ local Converted = {
 -- Properties:
 
 Converted["_ScreenGui"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-Converted["_ScreenGui"].Parent = game.Players.LocalPlayer.PlayerGui
+Converted["_ScreenGui"].Parent = game:GetService("CoreGui")
 
 Converted["_Frame"].BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Converted["_Frame"].BorderColor3 = Color3.fromRGB(0, 0, 0)
