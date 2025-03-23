@@ -35,13 +35,13 @@ Converted["_Animation Man"].Size = UDim2.new(0, 155, 0, 15)
 Converted["_Animation Man"].Name = "Animation Man"
 Converted["_Animation Man"].Parent = Converted["_Frame"]
 Converted["_Animation Man"].MouseButton1Click:Connect(function()
-	_G.rightarm = "Accessory (RArm)"
-	_G.leftarm = "Accessory (LArm)"
-	_G.rightleg = "RARM"
-	_G.leftleg = "LARM"
-	_G.torso = "Black"
-	_G.limbsoffset = CFrame.Angles(0,0,math.rad(-90))
-	_G.permdeath = true
+	getgenv().rightarm = "Accessory (RArm)"
+	getgenv().leftarm = "Accessory (LArm)"
+	getgenv().rightleg = "RARM"
+	getgenv().leftleg = "LARM"
+	getgenv().torso = "Black"
+	getgenv().limbsoffset = CFrame.Angles(0,0,math.rad(-90))
+	getgenv().permdeath = true
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/ImaMeow/Meow-Animations-/refs/heads/main/mainscript.lua"))()
 	local cmt = {
 		Angles = function(x,y,z,useRad)
@@ -511,13 +511,13 @@ Converted["_Neptunian V"].Size = UDim2.new(0, 155, 0, 15)
 Converted["_Neptunian V"].Name = "Neptunian V"
 Converted["_Neptunian V"].Parent = Converted["_Frame"]
 Converted["_Neptunian V"].MouseButton1Click:Connect(function()
-	_G.rightarm = "Accessory (RArm)"
-	_G.leftarm = "Accessory (LArm)"
-	_G.rightleg = "RARM"
-	_G.leftleg = "LARM"
-	_G.torso = "Black"
-	_G.limbsoffset = CFrame.Angles(0,0,math.rad(-90))
-	_G.permdeath = true
+	getgenv().rightarm = "Accessory (RArm)"
+	getgenv().leftarm = "Accessory (LArm)"
+	getgenv().rightleg = "RARM"
+	getgenv().leftleg = "LARM"
+	getgenv().torso = "Black"
+	getgenv().limbsoffset = CFrame.Angles(0,0,math.rad(-90))
+	getgenv().permdeath = true
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/ImaMeow/Meow-Animations-/refs/heads/main/mainscript.lua"))()
 	function LoadLibrary(a)
 		local t = {}
