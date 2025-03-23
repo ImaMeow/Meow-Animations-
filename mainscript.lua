@@ -1,6 +1,17 @@
 game.Players.LocalPlayer.Character.Archivable = true
-local fakechar = game.Players.LocalPlayer.Character:Clone()
+local fakechar = game.Players:CreateHumanoidModelFromDescription(game.Players.LocalPlayer.Character.Humanoid.HumanoidDescription,Enum.HumanoidRigType.R6)
 fakechar.Parent = game.Workspace
+fakechar.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+spawn(function()
+	while true do
+		for i,v in pairs(fakechar:GetDescendants()) do
+			if v:IsA("BasePart") then
+				v.CanCollide = false
+			end
+		end
+		task.wait()
+	end
+end)
 for i,v in pairs(fakechar:GetDescendants()) do
 	if v:IsA("BasePart") then
 		v.Transparency = 1
@@ -14,8 +25,6 @@ game.Players.LocalPlayer.Character = fakechar
 if getgenv().permdeath == true then
 	replicatesignal(game.Players.LocalPlayer.ConnectDiedSignalBackend)
 end
-fakechar.Animate.Disabled = true
-fakechar.Animate.Enabled = true
 task.wait(game.Players.RespawnTime+.65)
 if getgenv().permdeath == true then
 	replicatesignal(game.Players.LocalPlayer.Kill)
