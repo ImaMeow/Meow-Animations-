@@ -11,32 +11,32 @@ game.Players.LocalPlayer.Character.Parent = fakechar
 local realchar = fakechar[game.Players.LocalPlayer.Name]
 game.Workspace.CurrentCamera.CameraSubject = fakechar
 game.Players.LocalPlayer.Character = fakechar
-if _G.permdeath == true then
+if getgenv().permdeath == true then
 	replicatesignal(game.Players.LocalPlayer.ConnectDiedSignalBackend)
 end
 fakechar.Animate.Disabled = true
 fakechar.Animate.Enabled = true
 task.wait(game.Players.RespawnTime+.65)
-if _G.permdeath == true then
+if getgenv().permdeath == true then
 	replicatesignal(game.Players.LocalPlayer.Kill)
 else
 	realchar.Humanoid:ChangeState(15)
 end
 spawn(function()
 	while true do
-		realchar[_G.rightarm].Handle.CFrame = fakechar["Right Arm"].CFrame * _G.limbsoffset
-        realchar[_G.rightarm].Handle.Velocity = Vector3.new(0,6400,0)
-		realchar[_G.leftarm].Handle.CFrame = fakechar["Left Arm"].CFrame * _G.limbsoffset
-        realchar[_G.leftarm].Handle.Velocity = Vector3.new(0,6400,0)
-		realchar[_G.rightleg].Handle.CFrame = fakechar["Right Leg"].CFrame * _G.limbsoffset
-        realchar[_G.rightleg].Handle.Velocity = Vector3.new(0,6400,0)
-		realchar[_G.leftleg].Handle.CFrame = fakechar["Left Leg"].CFrame * _G.limbsoffset
-        realchar[_G.leftleg].Handle.Velocity = Vector3.new(0,6400,0)
-		realchar[_G.torso].Handle.CFrame = fakechar["Torso"].CFrame
-        realchar[_G.torso].Handle.Velocity = Vector3.new(0,6400,0)
+		realchar[getgenv().rightarm].Handle.CFrame = fakechar["Right Arm"].CFrame * getgenv().limbsoffset
+        realchar[getgenv().rightarm].Handle.Velocity = Vector3.new(0,6400,0)
+		realchar[getgenv().leftarm].Handle.CFrame = fakechar["Left Arm"].CFrame * getgenv().limbsoffset
+        realchar[getgenv().leftarm].Handle.Velocity = Vector3.new(0,6400,0)
+		realchar[getgenv().rightleg].Handle.CFrame = fakechar["Right Leg"].CFrame * getgenv().limbsoffset
+        realchar[getgenv().rightleg].Handle.Velocity = Vector3.new(0,6400,0)
+		realchar[getgenv().leftleg].Handle.CFrame = fakechar["Left Leg"].CFrame * getgenv().limbsoffset
+        realchar[getgenv().leftleg].Handle.Velocity = Vector3.new(0,6400,0)
+		realchar[getgenv().torso].Handle.CFrame = fakechar["Torso"].CFrame
+        realchar[getgenv().torso].Handle.Velocity = Vector3.new(0,6400,0)
 		for i,v in pairs(realchar:GetDescendants()) do
 			if v:IsA("Accessory") then
-				if v.Name == _G.rightarm or v.Name == _G.leftarm or v.Name == _G.rightleg or v.Name == _G.leftleg or v.Name == _G.torso then
+				if v.Name == getgenv().rightarm or v.Name == getgenv().leftarm or v.Name == getgenv().rightleg or v.Name == getgenv().leftleg or v.Name == getgenv().torso then
 					continue
 				else
 					v.Handle.CFrame = fakechar[v.Name].Handle.CFrame
@@ -53,30 +53,30 @@ game.Players.LocalPlayer.CharacterAdded:Connect(function()
 	realchar = fakechar[game.Players.LocalPlayer.Name]
 	game.Workspace.CurrentCamera.CameraSubject = fakechar
 	game.Players.LocalPlayer.Character = fakechar
-	if _G.permdeath == true then
+	if getgenv().permdeath == true then
 		replicatesignal(game.Players.LocalPlayer.ConnectDiedSignalBackend)
 	end
 	task.wait(game.Players.RespawnTime+.65)
-	if _G.permdeath == true then
+	if getgenv().permdeath == true then
 		replicatesignal(game.Players.LocalPlayer.Kill)
 	else
 		realchar.Humanoid:ChangeState(15)
 	end
 	spawn(function()
 	    while true do
-		    realchar[_G.rightarm].Handle.CFrame = fakechar["Right Arm"].CFrame * _G.limbsoffset
-           realchar[_G.rightarm].Handle.Velocity = Vector3.new(0,6400,0)
-	    	realchar[_G.leftarm].Handle.CFrame = fakechar["Left Arm"].CFrame * _G.limbsoffset
-            realchar[_G.leftarm].Handle.Velocity = Vector3.new(0,6400,0)
-	    	realchar[_G.rightleg].Handle.CFrame = fakechar["Right Leg"].CFrame * _G.limbsoffset
-            realchar[_G.rightleg].Handle.Velocity = Vector3.new(0,6400,0)
-	    	realchar[_G.leftleg].Handle.CFrame = fakechar["Left Leg"].CFrame * _G.limbsoffset
-            realchar[_G.leftleg].Handle.Velocity = Vector3.new(0,6400,0)
-	    	realchar[_G.torso].Handle.CFrame = fakechar["Torso"].CFrame
-            realchar[_G.torso].Handle.Velocity = Vector3.new(0,6400,0)
+		    realchar[getgenv().rightarm].Handle.CFrame = fakechar["Right Arm"].CFrame * getgenv().limbsoffset
+           realchar[getgenv().rightarm].Handle.Velocity = Vector3.new(0,6400,0)
+	    	realchar[getgenv().leftarm].Handle.CFrame = fakechar["Left Arm"].CFrame * getgenv().limbsoffset
+            realchar[getgenv().leftarm].Handle.Velocity = Vector3.new(0,6400,0)
+	    	realchar[getgenv().rightleg].Handle.CFrame = fakechar["Right Leg"].CFrame * getgenv().limbsoffset
+            realchar[getgenv().rightleg].Handle.Velocity = Vector3.new(0,6400,0)
+	    	realchar[getgenv().leftleg].Handle.CFrame = fakechar["Left Leg"].CFrame * getgenv().limbsoffset
+            realchar[getgenv().leftleg].Handle.Velocity = Vector3.new(0,6400,0)
+	    	realchar[getgenv().torso].Handle.CFrame = fakechar["Torso"].CFrame
+            realchar[getgenv().torso].Handle.Velocity = Vector3.new(0,6400,0)
 	    	for i,v in pairs(realchar:GetDescendants()) do
 	    		if v:IsA("Accessory") then
-	    			if v.Name == _G.rightarm or v.Name == _G.leftarm or v.Name == _G.rightleg or v.Name == _G.leftleg or v.Name == _G.torso then
+	    			if v.Name == getgenv().rightarm or v.Name == getgenv().leftarm or v.Name == getgenv().rightleg or v.Name == getgenv().leftleg or v.Name == getgenv().torso then
 	    				continue
 	    			else
 		    			v.Handle.CFrame = fakechar[v.Name].Handle.CFrame
