@@ -519,7 +519,6 @@ Converted["_Neptunian V"].MouseButton1Click:Connect(function()
 	_G.limbsoffset = CFrame.Angles(0,0,math.rad(-90))
 	_G.permdeath = true
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/ImaMeow/Meow-Animations-/refs/heads/main/mainscript.lua"))()
-	task.wait(2)
 	function LoadLibrary(a)
 		local t = {}
 
