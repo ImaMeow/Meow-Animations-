@@ -67,6 +67,10 @@ fling = function(humanoid)
 	task.wait(game.Players.RespawnTime+.65)
 	getgenv().lastflinghumanoid = humanoid
 	getgenv().flinging = true
+	highlight = Instance.new("Highlight")
+	highlight.FillColor = Color3.fromRGB(222,111,222)
+	highlight.Parent = humanoid.Parent.HumanoidRootPart
+	highlight.Adornee = humanoid.Parent
 	game.Players.LocalPlayer.Character.Parent = fakechar
 	realchar = fakechar[game.Players.LocalPlayer.Name]
 	game.Workspace.CurrentCamera.CameraSubject = fakechar
@@ -76,6 +80,7 @@ fling = function(humanoid)
 	task.wait(game.Players.RespawnTime+.65)
 	replicatesignal(game.Players.LocalPlayer.Kill)
 	getgenv().flinging = false
+	highlight:Destroy()
 end
 game.StarterGui:SetCore("SendNotification",{
 	Title = "Meow Animations";
