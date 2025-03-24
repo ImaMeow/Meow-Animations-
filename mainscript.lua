@@ -29,6 +29,7 @@ replicatesignal(game.Players.LocalPlayer.Kill)
 spawn(function()
 	while true do
 if getgenv().flinging == false then
+		realchar.HumanoidRootPart.AssemblyAngularVelocity = Vector3.new(0,0,0)
 		realchar[getgenv().rightarm].Handle.CFrame = fakechar["Right Arm"].CFrame * getgenv().limbsoffset
         realchar[getgenv().rightarm].Handle.Velocity = Vector3.new(0,6400,0)
 		realchar[getgenv().leftarm].Handle.CFrame = fakechar["Left Arm"].CFrame * getgenv().limbsoffset
