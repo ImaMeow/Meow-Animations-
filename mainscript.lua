@@ -42,7 +42,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 		for i,v in pairs(realchar:GetDescendants()) do
 			if v:IsA("Accessory") then
 				if v.Name == getgenv().rightarm or v.Name == getgenv().leftarm or v.Name == getgenv().rightleg or v.Name == getgenv().leftleg or v.Name == getgenv().torso then
-					continue
+					warn("nah")
 				else
 					v.Handle.CFrame = fakechar[v.Name].Handle.CFrame
                     v.Handle.Velocity = Vector3.new(0,6400,0)
