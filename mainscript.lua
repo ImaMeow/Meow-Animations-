@@ -71,7 +71,7 @@ fling = function(humanoid)
 	realchar = fakechar[game.Players.LocalPlayer.Name]
 	game.Workspace.CurrentCamera.CameraSubject = fakechar
 	game.Players.LocalPlayer.Character = fakechar
-	task.wait(2)
+	task.wait(.65)
 	replicatesignal(game.Players.LocalPlayer.ConnectDiedSignalBackend)
 	task.wait(game.Players.RespawnTime+.65)
 	replicatesignal(game.Players.LocalPlayer.Kill)
