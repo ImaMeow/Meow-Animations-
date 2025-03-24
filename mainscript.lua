@@ -78,6 +78,7 @@ fling = function(humanoid)
 	highlight:Destroy()
 	end
 end
+game.Players.LocalPlayer.SimulationRadius = 9999
 game.StarterGui:SetCore("SendNotification",{
 	Title = "Meow Animations";
 	Text = "Sucessfully Loaded! Made By ImaMeow"
