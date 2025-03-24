@@ -29,6 +29,7 @@ replicatesignal(game.Players.LocalPlayer.Kill)
 game:GetService("RunService").Heartbeat:Connect(function()
 	if getgenv().flinging == false then
 		realchar.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
+		game.Players.LocalPlayer.SimulationRadius = 9999
 		realchar[getgenv().rightarm].Handle.CFrame = fakechar["Right Arm"].CFrame * getgenv().limbsoffset
         realchar[getgenv().rightarm].Handle.Velocity = Vector3.new(0,6400,0)
 		realchar[getgenv().leftarm].Handle.CFrame = fakechar["Left Arm"].CFrame * getgenv().limbsoffset
@@ -78,7 +79,6 @@ fling = function(humanoid)
 	highlight:Destroy()
 	end
 end
-game.Players.LocalPlayer.SimulationRadius = 9999
 game.StarterGui:SetCore("SendNotification",{
 	Title = "Meow Animations";
 	Text = "Sucessfully Loaded! Made By ImaMeow"
