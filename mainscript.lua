@@ -26,7 +26,7 @@ game.Players.LocalPlayer.Character = fakechar
 replicatesignal(game.Players.LocalPlayer.ConnectDiedSignalBackend)
 task.wait(game.Players.RespawnTime+.65)
 replicatesignal(game.Players.LocalPlayer.Kill)
-game:GetService("RunService").RenderStepped:Connect(function()
+game:GetService("RunService").Heartbeat:Connect(function()
 	if getgenv().flinging == false then
 		realchar.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
 		realchar[getgenv().rightarm].Handle.CFrame = fakechar["Right Arm"].CFrame * getgenv().limbsoffset
@@ -51,7 +51,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 		end
 	end
 end)
-game:GetService("RunService").RenderStepped:Connect(function()
+game:GetService("RunService").Heartbeat:Connect(function()
 	if getgenv().flinging == true then
 		realchar.HumanoidRootPart.CFrame = getgenv().lastflinghumanoid.Parent.HumanoidRootPart.CFrame
 		realchar.HumanoidRootPart.Velocity = Vector3.new(6400,6400,6400)
