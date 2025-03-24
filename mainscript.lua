@@ -58,13 +58,13 @@ game:GetService("RunService").Heartbeat:Connect(function()
 	end
 end)
 fling = function(humanoid)
+	highlight = Instance.new("Highlight")
+	highlight.FillColor = Color3.fromRGB(222,111,222)
+	highlight.Parent = humanoid.Parent
 	replicatesignal(game.Players.LocalPlayer.ConnectDiedSignalBackend)
 	task.wait(game.Players.RespawnTime+.65)
 	getgenv().lastflinghumanoid = humanoid
 	getgenv().flinging = true
-	local highlight = Instance.new("Highlight")
-	highlight.FillColor = Color3.fromRGB(222,111,222)
-	highlight.Parent = humanoid.Parent
 	game.Players.LocalPlayer.Character.Parent = fakechar
 	realchar = fakechar[game.Players.LocalPlayer.Name]
 	game.Workspace.CurrentCamera.CameraSubject = fakechar
