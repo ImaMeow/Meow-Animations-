@@ -58,6 +58,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
 	end
 end)
 fling = function(humanoid)
+	if humanoid:IsA("Humanoid") then
 	highlight = Instance.new("Highlight")
 	highlight.FillColor = Color3.fromRGB(222,111,222)
 	highlight.Parent = humanoid.Parent
@@ -75,6 +76,7 @@ fling = function(humanoid)
 	replicatesignal(game.Players.LocalPlayer.Kill)
 	getgenv().flinging = false
 	highlight:Destroy()
+	end
 end
 game.StarterGui:SetCore("SendNotification",{
 	Title = "Meow Animations";
