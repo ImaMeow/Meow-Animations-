@@ -29,7 +29,7 @@ replicatesignal(game.Players.LocalPlayer.Kill)
 spawn(function()
 	while true do
 if getgenv().flinging == false then
-		realchar.HumanoidRootPart.AssemblyAngularVelocity = Vector3.new(0,0,0)
+		realchar.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
 		realchar[getgenv().rightarm].Handle.CFrame = fakechar["Right Arm"].CFrame * getgenv().limbsoffset
         realchar[getgenv().rightarm].Handle.Velocity = Vector3.new(0,6400,0)
 		realchar[getgenv().leftarm].Handle.CFrame = fakechar["Left Arm"].CFrame * getgenv().limbsoffset
@@ -58,7 +58,7 @@ spawn(function()
 	while true do
 if getgenv().flinging == true then
 		realchar.HumanoidRootPart.CFrame = getgenv().lastflinghumanoid.Parent.HumanoidRootPart.CFrame
-		realchar.HumanoidRootPart.AssemblyAngularVelocity = Vector3.new(6400,6400,6400)
+		realchar.HumanoidRootPart.Velocity = Vector3.new(6400,6400,6400)
 end
 		task.wait()
 	end
@@ -68,7 +68,7 @@ fling = function(humanoid)
 	task.wait(game.Players.RespawnTime+.65)
 	getgenv().lastflinghumanoid = humanoid
 	getgenv().flinging = true
-	highlight = Instance.new("Highlight")
+	local highlight = Instance.new("Highlight")
 	highlight.FillColor = Color3.fromRGB(222,111,222)
 	highlight.Parent = humanoid.Parent
 	game.Players.LocalPlayer.Character.Parent = fakechar
