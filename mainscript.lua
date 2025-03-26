@@ -1,3 +1,10 @@
+if not replicatesignal then
+	game.StarterGui:SetCore("SendNotification",{
+		Title = "Meow Animations";
+		Text = "Failed to load. Check console for more info"
+	})
+	error("Executor Not Supported. replicatesignal() Required")
+end
 getgenv().flinging = false
 getgenv().lastflinghumanoid = nil
 fakechar = game.Players:CreateHumanoidModelFromDescription(game.Players.LocalPlayer.Character.Humanoid.HumanoidDescription,Enum.HumanoidRigType.R6)
