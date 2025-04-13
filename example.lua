@@ -2,7 +2,6 @@
 functions:
 fling(humanoid)
 refit()
-stop()
 --]]
 getgenv().rightarm = "Accessory (LimbThree)"
 getgenv().leftarm = "Accessory (LimbFour)"
