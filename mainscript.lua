@@ -10,6 +10,7 @@ getgenv().lastflinghumanoid = nil
 fakechar = game.Players:CreateHumanoidModelFromDescription(game.Players.LocalPlayer.Character.Humanoid.HumanoidDescription,Enum.HumanoidRigType.R6)
 fakechar.Parent = game.Workspace
 fakechar.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+fakechar:ScaleTo(getgenv().rigsize)
 spawn(function()
 	while true do
 		for i,v in pairs(fakechar:GetDescendants()) do
@@ -85,6 +86,22 @@ fling = function(humanoid)
 	getgenv().flinging = false
 	highlight:Destroy()
 	end
+end
+refit = function()
+    replicatesignal(game.Players.LocalPlayer.ConnectDiedSignalBackend)
+    task.wait(game.Players.RespawnTime+.65)
+    game.Players.LocalPlayer.Character.Parent = fakechar
+    realchar = fakechar[game.Players.LocalPlayer.Name]
+    game.Workspace.CurrentCamera.CameraSubject = fakechar
+    game.Players.LocalPlayer.Character = fakechar
+    replicatesignal(game.Players.LocalPlayer.ConnectDiedSignalBackend)
+    task.wait(game.Players.RespawnTime+.65)
+    replicatesignal(game.Players.LocalPlayer.Kill)
+end
+stop = function()
+    replicatesignal(game.Players.LocalPlayer.ConnectDiedSignalBackend)
+    task.wait(game.Players.RespawnTime+.65)
+    fakechar:Destroy()
 end
 game.StarterGui:SetCore("SendNotification",{
 	Title = "Meow Animations";
