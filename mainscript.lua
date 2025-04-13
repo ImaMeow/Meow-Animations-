@@ -7,7 +7,6 @@ if not replicatesignal then
 end
 getgenv().flinging = false
 getgenv().lastflinghumanoid = nil
-stopped = false
 fakechar = game.Players:CreateHumanoidModelFromDescription(game.Players.LocalPlayer.Character.Humanoid.HumanoidDescription,Enum.HumanoidRigType.R6)
 fakechar.Parent = game.Workspace
 fakechar.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
@@ -36,7 +35,6 @@ replicatesignal(game.Players.LocalPlayer.ConnectDiedSignalBackend)
 task.wait(game.Players.RespawnTime+.65)
 replicatesignal(game.Players.LocalPlayer.Kill)
 game:GetService("RunService").Heartbeat:Connect(function()
-		if stopped then return end
 	if getgenv().flinging == false then
 		realchar.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
 		game.Players.LocalPlayer.SimulationRadius = 9999
@@ -63,7 +61,6 @@ game:GetService("RunService").Heartbeat:Connect(function()
 	end
 end)
 game:GetService("RunService").Heartbeat:Connect(function()
-		if stopped then return end
 	if getgenv().flinging == true then
 		realchar.HumanoidRootPart.CFrame = getgenv().lastflinghumanoid.Parent.HumanoidRootPart.CFrame
 		realchar.HumanoidRootPart.Velocity = Vector3.new(6400,6400,6400)
@@ -100,12 +97,6 @@ refit = function()
     replicatesignal(game.Players.LocalPlayer.ConnectDiedSignalBackend)
     task.wait(game.Players.RespawnTime+.65)
     replicatesignal(game.Players.LocalPlayer.Kill)
-end
-stop = function()
-    replicatesignal(game.Players.LocalPlayer.ConnectDiedSignalBackend)
-    task.wait(game.Players.RespawnTime+.65)
-    fakechar:Destroy()
-stopped = true
 end
 game.StarterGui:SetCore("SendNotification",{
 	Title = "Meow Animations";
