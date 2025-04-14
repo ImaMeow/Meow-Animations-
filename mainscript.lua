@@ -78,9 +78,9 @@ fling = function(humanoid)
 	highlight.Parent = humanoid.Parent.HumanoidRootPart
 	highlight.Adornee = humanoid.Parent
 	replicatesignal(game.Players.LocalPlayer.ConnectDiedSignalBackend)
+		getgenv().lastflinghumanoid = humanoid
 		getgenv().flinging = true
 	task.wait(game.Players.RespawnTime+.65)
-	getgenv().lastflinghumanoid = humanoid
 	game.Players.LocalPlayer.Character.Parent = fakechar
 	realchar = fakechar[game.Players.LocalPlayer.Name]
 	game.Workspace.CurrentCamera.CameraSubject = fakechar
