@@ -7,6 +7,7 @@ if not replicatesignal then
 end
 getgenv().flinging = false
 getgenv().lastflinghumanoid = nil
+getgenv().refitting = false
 fakechar = game.Players:CreateHumanoidModelFromDescription(game.Players.LocalPlayer.Character.Humanoid.HumanoidDescription,Enum.HumanoidRigType.R6)
 fakechar.Parent = game.Workspace
 fakechar.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
@@ -67,11 +68,11 @@ game:GetService("RunService").Heartbeat:Connect(function()
 	end
 end)
 fling = function(humanoid)
-		game.StarterGui:SetCore("SendNotification",{
-Title = "Meow Animations";
-Text = "Flinging..."
+	if not getgenv().flinging then
+	game.StarterGui:SetCore("SendNotification",{
+		Title = "Meow Animations";
+		Text = "Flinging..."
 	})
-	if humanoid:IsA("Humanoid") then
 	highlight = Instance.new("Highlight")
 	highlight.FillColor = Color3.fromRGB(222,111,222)
 	highlight.Parent = humanoid.Parent
@@ -92,19 +93,23 @@ Text = "Flinging..."
 	end
 end
 refit = function()
-	game.StarterGui:SetCore("SendNotification",{
-Title = "Meow Animations";
-Text = "Refitting..."
-	})
-    replicatesignal(game.Players.LocalPlayer.ConnectDiedSignalBackend)
-    task.wait(game.Players.RespawnTime+.65)
-    game.Players.LocalPlayer.Character.Parent = fakechar
-    realchar = fakechar[game.Players.LocalPlayer.Name]
-    game.Workspace.CurrentCamera.CameraSubject = fakechar
-    game.Players.LocalPlayer.Character = fakechar
-    replicatesignal(game.Players.LocalPlayer.ConnectDiedSignalBackend)
-    task.wait(game.Players.RespawnTime+.65)
-    replicatesignal(game.Players.LocalPlayer.Kill)
+	if not getgenv().refitting then
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "Meow Animations";
+				Text = "Refitting..."
+			})
+    	replicatesignal(game.Players.LocalPlayer.ConnectDiedSignalBackend)
+		getgenv().refitting = true
+   	 task.wait(game.Players.RespawnTime+.65)
+  	  game.Players.LocalPlayer.Character.Parent = fakechar
+  	  realchar = fakechar[game.Players.LocalPlayer.Name]
+ 	   game.Workspace.CurrentCamera.CameraSubject = fakechar
+ 	   game.Players.LocalPlayer.Character = fakechar
+ 	   replicatesignal(game.Players.LocalPlayer.ConnectDiedSignalBackend)
+   	 task.wait(game.Players.RespawnTime+.65)
+  	  replicatesignal(game.Players.LocalPlayer.Kill)
+		getgenv().refitting = false
+	end
 end
 LoadLibrary = function()
 	local t = {}
