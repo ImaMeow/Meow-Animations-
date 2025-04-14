@@ -3,7 +3,7 @@ if not replicatesignal then
 		Title = "Meow Animations";
 		Text = "Failed to load. Check console for more info"
 	})
-	error("Executor Not Supported. replicatesignal() Required\nSupported Executors:\nVelocity (Standard Detection,Safe)\nDelta (Ultra Detection,Ratted)\nArgon (Ultra Detection,Ratted)\nSwift (Semi Detection,Unknown)")
+	error("Executor Not Supported. replicatesignal() Required\nSupported Executors:\nVelocity (Standard Detection,Safe)\nDelta (Ultra Detection,Ratted)\nArgon (Ultra Detection,Ratted)\nSwift (Semi Detection,Unknown)\nFrostware (No Detection,Safe)")
 end
 getgenv().flinging = false
 getgenv().lastflinghumanoid = nil
