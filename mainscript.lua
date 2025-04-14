@@ -75,11 +75,12 @@ fling = function(humanoid)
 	})
 	highlight = Instance.new("Highlight")
 	highlight.FillColor = Color3.fromRGB(222,111,222)
-	highlight.Parent = humanoid.Parent
+	highlight.Parent = humanoid.Parent.HumanoidRootPart
+	highlight.Adornee = humanoid.Parent
 	replicatesignal(game.Players.LocalPlayer.ConnectDiedSignalBackend)
+		getgenv().flinging = true
 	task.wait(game.Players.RespawnTime+.65)
 	getgenv().lastflinghumanoid = humanoid
-	getgenv().flinging = true
 	game.Players.LocalPlayer.Character.Parent = fakechar
 	realchar = fakechar[game.Players.LocalPlayer.Name]
 	game.Workspace.CurrentCamera.CameraSubject = fakechar
