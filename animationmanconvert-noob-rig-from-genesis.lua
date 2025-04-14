@@ -6,7 +6,7 @@ refit()
 getgenv().rightarm = "Accessory (RArmNoob)"
 getgenv().leftarm = "Accessory (LArmNoob)"
 getgenv().rightleg = "Accessory (RLegNoob)"
-getgenv().leftleg = "Accessory(LLegNoob)"
+getgenv().leftleg = "Accessory (LLegNoob)"
 getgenv().torso = "Accessory (TorsoNoob)"
 getgenv().limbsoffset = CFrame.Angles(0,0,math.rad(-90))
 getgenv().rigsize = 1
