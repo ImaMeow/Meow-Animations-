@@ -67,6 +67,10 @@ game:GetService("RunService").Heartbeat:Connect(function()
 	end
 end)
 fling = function(humanoid)
+		game.StarterGui:SetCore("SendNotification",{
+Title = "Meow Animations";
+Text = "Flinging..."
+	})
 	if humanoid:IsA("Humanoid") then
 	highlight = Instance.new("Highlight")
 	highlight.FillColor = Color3.fromRGB(222,111,222)
@@ -88,6 +92,10 @@ fling = function(humanoid)
 	end
 end
 refit = function()
+	game.StarterGui:SetCore("SendNotification",{
+Title = "Meow Animations";
+Text = "Refitting..."
+	})
     replicatesignal(game.Players.LocalPlayer.ConnectDiedSignalBackend)
     task.wait(game.Players.RespawnTime+.65)
     game.Players.LocalPlayer.Character.Parent = fakechar
